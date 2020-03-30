@@ -589,6 +589,22 @@ footer.is-mobile {
 #site-social-icons .social-icon:hover {
   color: #fff;
 }
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+  margin-bottom: 55px !important;
+}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:visited {
+  left: 0px !important;
+}
+.aplayer.aplayer-withlist.aplayer-fixed {
+  margin-bottom: 55px !important;
+}
+.aplayer.aplayer-withlist.aplayer-fixed .aplayer-body {
+  margin-bottom: 55px !important;
+}
+.aplayer-miniswitcher .aplayer-icon {
+  background-color: #2baed8 !important;
+}
 #page-header {
   position: absolute;
   top: 0;

@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>基本数据类型和运算符</title>
+      <link href="/post/go/4/"/>
+      <url>/post/go/4/</url>
+      
+      
+      <categories>
+          
+          <category> go </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>变量常量</title>
+      <link href="/post/go/3/"/>
+      <url>/post/go/3/</url>
+      
+      
+      <categories>
+          
+          <category> go </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Go语言编码规范</title>
       <link href="/post/go/2/"/>
       <url>/post/go/2/</url>

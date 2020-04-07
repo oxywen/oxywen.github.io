@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="基本数据类型和运算符"><meta name="keywords" content="笔记,go"><meta name="author" content="Oxywen"><meta name="copyright" content="Oxywen"><title>基本数据类型和运算符 | 不闻星河须臾</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="/pio/static/pio.css"><script src="/pio/static/l2d.js"></script><script src="/pio/static/pio.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6762629114964129',
+  enable_page_level_ads: 'true'
+});
+</script><link rel="dns-prefetch" href="https://hm.baidu.com"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ca2650c4c7f8c24a413550104d43d6f3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基本数据类型"><span class="toc-number">1.</span> <span class="toc-text">1 基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-布尔型bool"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 布尔型bool</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-数值型"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 数值型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-1-整型"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1 整型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-2-1-1-基本整型"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">1.2.1.1 基本整型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-2-1-2-特殊整型"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">1.2.1.2 特殊整型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-2-1-3-数字字面量语法"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">1.2.1.3 数字字面量语法</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2浮点型"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2.2浮点型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-3复数"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.2.3复数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-4-byte和rune类型"><span class="toc-number">1.2.4.</span> <span class="toc-text">1.2.4 byte和rune类型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-字符串"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-3-1-字符串转义符"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">1.3.1 字符串转义符</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-3-2-多行字符串"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">1.3.2 多行字符串</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-3-3-字符串的常用操作"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">1.3.3 字符串的常用操作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-3-4-修改字符串"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">1.3.4 修改字符串</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-数据类型转换"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 数据类型转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-复合类型-派生类型"><span class="toc-number">2.</span> <span class="toc-text">2 复合类型(派生类型)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-运算符"><span class="toc-number">3.</span> <span class="toc-text">3 运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-算术运算符"><span class="toc-number">3.1.</span> <span class="toc-text">3.1  算术运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-关系运算符"><span class="toc-number">3.2.</span> <span class="toc-text">1.2 关系运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-逻辑运算符"><span class="toc-number">3.3.</span> <span class="toc-text">1.3 逻辑运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-位运算符"><span class="toc-number">3.4.</span> <span class="toc-text">1.4 位运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-赋值运算符"><span class="toc-number">3.5.</span> <span class="toc-text">1.5 赋值运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6运算符优先级"><span class="toc-number">3.6.</span> <span class="toc-text">1.6运算符优先级</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://ww1.yunjiexi.club/2020/03/12/cLzMt.jpg"></div><div class="author-info__name text-center">Oxywen</div><div class="author-info__description text-center"></div><div class="follow-button"><a href="https://github.com/oxywen" target="_blank" rel="noopener">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">11</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">8</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">3</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" href="https://waxxh.me/" target="_blank" rel="noopener">Waxxh's Blog</a><a class="author-info-links__name text-center" href="http://www.sweetsmoe.com/" target="_blank" rel="noopener">甜小萌</a><a class="author-info-links__name text-center" href="https://www.nmoe.cn/" target="_blank" rel="noopener">花落知雨</a><a class="author-info-links__name text-center" href="https://www.yuanshuli.com/" target="_blank" rel="noopener">碧海长天</a><a class="author-info-links__name text-center" href="https://www.xujianhua.com/" target="_blank" rel="noopener">许建华博客</a><a class="author-info-links__name text-center" href="https://yanqiyu.info/" target="_blank" rel="noopener">Karuboniru's Blog</a></div></div></div><!-- 判断是否启用aplayer--><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><meting-js id="4944495601" server="netease" type="playlist" fixed="true" order="random" preload="auto" autoplay="true" loop="all" mutex="true" volume="0.7" list-olded="true" theme="#49b1f5"></meting-js><div class="pio-container" style="right:0;"><div class="pio-action"></div><canvas id="pio" width="300" height="256"></canvas></div><script type="text/javascript">var pio = new Paul_Pio({
+  "mode": "static",
+  "hidden": false,
+  "content": {
+  "welcome": ["你好，欢迎来到Oxywen的小窝，希望玩得开心","你好呀，我是Pio，傲完就娇的Pio~"],
+  "referer": "欢迎你，来自%t的用户",
+  },
+  "model": ["/pio/models/pio/model.json"]
+  })</script><div id="content-outer"><div id="top-container" style="background-image: url(https://ww2.yunjiexi.club/2019/05/01/DZvIP.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">不闻星河须臾</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">基本数据类型和运算符</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-07</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/go/">go</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2k</span><span class="post-meta__separator">|</span><span>阅读时长: 7 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h3 id="1-基本数据类型"><a href="#1-基本数据类型" class="headerlink" title="1 基本数据类型"></a>1 基本数据类型</h3><p>go中可用的基本数据类型：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">布尔bool</td>
+<td align="center">bool</td>
+</tr>
+<tr>
+<td align="center">数值型</td>
+<td align="center">int，int8/16/32/64，uint，uint8/16/32/64，float32/64，complex64/128，byte/rune</td>
+</tr>
+<tr>
+<td align="center">字符串类型</td>
+<td align="center">string</td>
+</tr>
+</tbody></table>
+<h4 id="1-1-布尔型bool"><a href="#1-1-布尔型bool" class="headerlink" title="1.1 布尔型bool"></a>1.1 布尔型bool</h4><p>布尔型的值只可以是常量 true 或者 false。</p>
+<h4 id="1-2-数值型"><a href="#1-2-数值型" class="headerlink" title="1.2 数值型"></a>1.2 数值型</h4><h5 id="1-2-1-整型"><a href="#1-2-1-整型" class="headerlink" title="1.2.1 整型"></a>1.2.1 整型</h5><h6 id="1-2-1-1-基本整型"><a href="#1-2-1-1-基本整型" class="headerlink" title="1.2.1.1 基本整型"></a>1.2.1.1 基本整型</h6><p>整型分为以下两个大类： 按长度分为：int8、int16、int32、int64 对应的无符号整型：uint8、uint16、uint32、uint64</p>
+<p>其中，<code>uint8</code>就是我们熟知的<code>byte</code>型，<code>int16</code>对应C语言中的<code>short</code>型，<code>int64</code>对应C语言中的<code>long</code>型。</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">uint8</td>
+<td align="center">无符号 8位整型 (0 到 255)</td>
+</tr>
+<tr>
+<td align="center">uint16</td>
+<td align="center">无符号 16位整型 (0 到 65535)</td>
+</tr>
+<tr>
+<td align="center">uint32</td>
+<td align="center">无符号 32位整型 (0 到 4294967295)</td>
+</tr>
+<tr>
+<td align="center">uint64</td>
+<td align="center">无符号 64位整型 (0 到 18446744073709551615)</td>
+</tr>
+<tr>
+<td align="center">int8</td>
+<td align="center">有符号 8位整型 (-128 到 127)</td>
+</tr>
+<tr>
+<td align="center">int16</td>
+<td align="center">有符号 16位整型 (-32768 到 32767)</td>
+</tr>
+<tr>
+<td align="center">int32</td>
+<td align="center">有符号 32位整型 (-2147483648 到 2147483647)</td>
+</tr>
+<tr>
+<td align="center">int64</td>
+<td align="center">有符号 64位整型 (-9223372036854775808 到 9223372036854775807)</td>
+</tr>
+</tbody></table>
+<h6 id="1-2-1-2-特殊整型"><a href="#1-2-1-2-特殊整型" class="headerlink" title="1.2.1.2 特殊整型"></a>1.2.1.2 特殊整型</h6><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">uint</td>
+<td align="center">32位操作系统上就是<code>uint32</code>，64位操作系统上就是<code>uint64</code></td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">32位操作系统上就是<code>int32</code>，64位操作系统上就是<code>int64</code></td>
+</tr>
+<tr>
+<td align="center">uintptr</td>
+<td align="center">无符号整型，用于存放一个指针</td>
+</tr>
+</tbody></table>
+<p><strong>注意：</strong> 在使用<code>int</code>和 <code>uint</code>类型时，不能假定它是32位或64位的整型，而是考虑<code>int</code>和<code>uint</code>可能在不同平台上的差异。</p>
+<p>获取对象的长度的内置函数<code>len()</code>返回的长度可以根据不同平台的字节长度进行变化。实际使用中，切片或 map 的元素数量等都可以用<code>int</code>来表示。在涉及到二进制传输、读写文件的结构描述时，为了保持文件的结构不会受到不同编译目标平台字节长度的影响，不要使用<code>int</code>和 <code>uint</code>。</p>
+<h6 id="1-2-1-3-数字字面量语法"><a href="#1-2-1-3-数字字面量语法" class="headerlink" title="1.2.1.3 数字字面量语法"></a>1.2.1.3 数字字面量语法</h6><p>Go1.13版本之后引入了数字字面量语法（Number literals syntax），这样便于开发者以二进制、八进制或十六进制浮点数的格式定义数字，例如：</p>
+<p>v := 0b00101101， 代表二进制的 101101，相当于十进制的 45。 v := 0o377，代表八进制的 377，相当于十进制的 255。 v := 0x1p-2，代表十六进制的 1 除以 2²，也就是 0.25。 而且还允许我们用 _ 来分隔数字，比如说：</p>
+<p>v := 123_456 等于 123456。</p>
+<p>我们可以借助fmt函数来将一个整数以不同进制形式展示。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">// 十进制</span></span><br><span class="line">	<span class="keyword">var</span> a <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line">	fmt.Printf(<span class="string">"%d \n"</span>, a)  <span class="comment">// 10</span></span><br><span class="line">	fmt.Printf(<span class="string">"%b \n"</span>, a)  <span class="comment">// 1010  占位符%b表示二进制</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 八进制  以0开头</span></span><br><span class="line">	<span class="keyword">var</span> b <span class="keyword">int</span> = <span class="number">077</span></span><br><span class="line">	fmt.Printf(<span class="string">"%o \n"</span>, b)  <span class="comment">// 77</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 十六进制  以0x开头</span></span><br><span class="line">	<span class="keyword">var</span> c <span class="keyword">int</span> = <span class="number">0xff</span></span><br><span class="line">	fmt.Printf(<span class="string">"%x \n"</span>, c)  <span class="comment">// ff</span></span><br><span class="line">	fmt.Printf(<span class="string">"%X \n"</span>, c)  <span class="comment">// FF</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-2浮点型"><a href="#1-2-2浮点型" class="headerlink" title="1.2.2浮点型"></a>1.2.2浮点型</h5><p>Go语言支持两种浮点型数：<code>float32</code>和<code>float64</code>。这两种浮点型数据格式遵循<code>IEEE 754</code>标准： <code>float32</code> 的浮点数的最大范围约为 <code>3.4e38</code>，可以使用常量定义：<code>math.MaxFloat32</code>。 <code>float64</code> 的浮点数的最大范围约为 <code>1.8e308</code>，可以使用一个常量定义：<code>math.MaxFloat64</code>。</p>
+<p>打印浮点数时，可以使用<code>fmt</code>包配合动词<code>%f</code>，代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">        <span class="string">"fmt"</span></span><br><span class="line">        <span class="string">"math"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">        fmt.Printf(<span class="string">"%f\n"</span>, math.Pi)</span><br><span class="line">        fmt.Printf(<span class="string">"%.2f\n"</span>, math.Pi)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-2-3复数"><a href="#1-2-3复数" class="headerlink" title="1.2.3复数"></a>1.2.3复数</h5><p>complex64和complex128</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c1 <span class="keyword">complex64</span></span><br><span class="line">c1 = <span class="number">1</span> + <span class="number">2i</span></span><br><span class="line"><span class="keyword">var</span> c2 <span class="keyword">complex128</span></span><br><span class="line">c2 = <span class="number">2</span> + <span class="number">3i</span></span><br><span class="line">fmt.Println(c1)</span><br><span class="line">fmt.Println(c2)</span><br></pre></td></tr></table></figure>
+
+<p>复数有实部和虚部，complex64的实部和虚部为32位，complex128的实部和虚部为64位。</p>
+<h5 id="1-2-4-byte和rune类型"><a href="#1-2-4-byte和rune类型" class="headerlink" title="1.2.4 byte和rune类型"></a>1.2.4 byte和rune类型</h5><ul>
+<li><p>组成每个字符串的元素叫做“字符”，可以通过遍历或者单个获取字符串元素获得字符。 字符用单引号（’）包裹起来，如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a := <span class="string">'中'</span></span><br><span class="line"><span class="keyword">var</span> b := <span class="string">'x'</span></span><br></pre></td></tr></table></figure>
+
+<p>Go 语言的字符有以下两种：</p>
+<ol>
+<li><code>uint8</code>类型，或者叫 byte 型，代表了<code>ASCII码</code>的一个字符。</li>
+<li><code>rune</code>类型，代表一个 <code>UTF-8字符</code>。</li>
+</ol>
+<p>当需要处理中文、日文或者其他复合字符时，则需要用到<code>rune</code>类型。<code>rune</code>类型实际是一个<code>int32</code>。</p>
+<p>Go 使用了特殊的 rune 类型来处理 Unicode，让基于 Unicode 的文本处理更为方便，也可以使用 byte 型进行默认字符串处理，性能和扩展性都有照顾。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历字符串</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">traversalString</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s := <span class="string">"hello沙河"</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123; <span class="comment">//byte</span></span><br><span class="line">		fmt.Printf(<span class="string">"%v(%c) "</span>, s[i], s[i])</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println()</span><br><span class="line">	<span class="keyword">for</span> _, r := <span class="keyword">range</span> s &#123; <span class="comment">//rune</span></span><br><span class="line">		fmt.Printf(<span class="string">"%v(%c) "</span>, r, r)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">104(h) 101(e) 108(l) 108(l) 111(o) 230(æ) 178(²) 153() 230(æ) 178(²) 179(³) </span><br><span class="line">104(h) 101(e) 108(l) 108(l) 111(o) 27801(沙) 27827(河)</span><br></pre></td></tr></table></figure>
+
+<p>因为UTF8编码下一个中文汉字由3~4个字节组成，所以我们不能简单的按照字节去遍历一个包含中文的字符串，否则就会出现上面输出中第一行的结果。</p>
+<p>字符串底层是一个byte数组，所以可以和<code>[]byte</code>类型相互转换。字符串是不能修改的 字符串是由byte字节组成，所以字符串的长度是byte字节的长度。 rune类型用来表示utf8字符，一个rune字符由一个或多个byte组成。</p>
+</li>
+</ul>
+<h4 id="1-3-字符串"><a href="#1-3-字符串" class="headerlink" title="1.3 字符串"></a>1.3 字符串</h4><p>Go语言中的字符串以原生数据类型出现，使用字符串就像使用其他原生数据类型（int、bool、float32、float64 等）一样。 Go 语言里的字符串的内部实现使用<code>UTF-8</code>编码。 字符串的值为<code>双引号(&quot;)</code>中的内容，可以在Go语言的源码中直接添加非ASCII码字符，例如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 := <span class="string">"hello"</span></span><br><span class="line">s2 := <span class="string">"你好"</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="1-3-1-字符串转义符"><a href="#1-3-1-字符串转义符" class="headerlink" title="1.3.1 字符串转义符"></a>1.3.1 字符串转义符</h6><p>Go 语言的字符串常见转义符包含回车、换行、单双引号、制表符等，和其他语言类似</p>
+<table>
+<thead>
+<tr>
+<th align="center">转义符</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>\r</code></td>
+<td align="center">回车符（返回行首）</td>
+</tr>
+<tr>
+<td align="center"><code>\n</code></td>
+<td align="center">换行符（直接跳到下一行的同列位置）</td>
+</tr>
+<tr>
+<td align="center"><code>\t</code></td>
+<td align="center">制表符</td>
+</tr>
+<tr>
+<td align="center"><code>\&#39;</code></td>
+<td align="center">单引号</td>
+</tr>
+<tr>
+<td align="center"><code>\&quot;</code></td>
+<td align="center">双引号</td>
+</tr>
+<tr>
+<td align="center"><code>\\</code></td>
+<td align="center">反斜杠</td>
+</tr>
+</tbody></table>
+<h6 id="1-3-2-多行字符串"><a href="#1-3-2-多行字符串" class="headerlink" title="1.3.2 多行字符串"></a>1.3.2 多行字符串</h6><p>Go语言中要定义一个多行字符串时，就必须使用<code>反引号</code>字符：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s1 := <span class="string">`第一行</span></span><br><span class="line"><span class="string">第二行</span></span><br><span class="line"><span class="string">第三行</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line">fmt.Println(s1)</span><br></pre></td></tr></table></figure>
+
+<p>反引号间换行将被作为字符串中的换行，但是所有的转义字符均无效，文本将会原样输出。</p>
+<h6 id="1-3-3-字符串的常用操作"><a href="#1-3-3-字符串的常用操作" class="headerlink" title="1.3.3 字符串的常用操作"></a>1.3.3 字符串的常用操作</h6><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">len(str)</td>
+<td align="center">求长度</td>
+</tr>
+<tr>
+<td align="center">+或fmt.Sprintf</td>
+<td align="center">拼接字符串</td>
+</tr>
+<tr>
+<td align="center">strings.Split</td>
+<td align="center">分割</td>
+</tr>
+<tr>
+<td align="center">strings.contains</td>
+<td align="center">判断是否包含</td>
+</tr>
+<tr>
+<td align="center">strings.HasPrefix,strings.HasSuffix</td>
+<td align="center">前缀/后缀判断</td>
+</tr>
+<tr>
+<td align="center">strings.Index(),strings.LastIndex()</td>
+<td align="center">子串出现的位置</td>
+</tr>
+<tr>
+<td align="center">strings.Join(a[]string, sep string)</td>
+<td align="center">join操作</td>
+</tr>
+</tbody></table>
+<h6 id="1-3-4-修改字符串"><a href="#1-3-4-修改字符串" class="headerlink" title="1.3.4 修改字符串"></a>1.3.4 修改字符串</h6><p>要修改字符串，需要先将其转换成<code>[]rune</code>或<code>[]byte</code>，完成后再转换为<code>string</code>。无论哪种转换，都会重新分配内存，并复制字节数组。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">changeString</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s1 := <span class="string">"big"</span></span><br><span class="line">	<span class="comment">// 强制类型转换</span></span><br><span class="line">	byteS1 := []<span class="keyword">byte</span>(s1)</span><br><span class="line">	byteS1[<span class="number">0</span>] = <span class="string">'p'</span></span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(byteS1))</span><br><span class="line"></span><br><span class="line">	s2 := <span class="string">"白萝卜"</span></span><br><span class="line">	runeS2 := []<span class="keyword">rune</span>(s2)</span><br><span class="line">	runeS2[<span class="number">0</span>] = <span class="string">'红'</span></span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(runeS2))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-数据类型转换"><a href="#1-4-数据类型转换" class="headerlink" title="1.4 数据类型转换"></a>1.4 数据类型转换</h4><p>Go语言中只有强制类型转换，没有隐式类型转换。该语法只能在两个类型之间支持相互转换的时候使用。</p>
+<p>语法格式：Type(Value)</p>
+<p>常数：在有需要的时候，会自动转型</p>
+<p>变量：需要手动转型    T(V)</p>
+<h3 id="2-复合类型-派生类型"><a href="#2-复合类型-派生类型" class="headerlink" title="2 复合类型(派生类型)"></a>2 复合类型(派生类型)</h3><p>1、指针类型（Pointer）<br>2、数组类型<br>3、结构化类型(struct)<br>4、Channel 类型<br>5、函数类型 （func）<br>6、切片类型（slice）<br>7、接口类型（interface）<br>8、Map 类型（map）</p>
+<h3 id="3-运算符"><a href="#3-运算符" class="headerlink" title="3 运算符"></a>3 运算符</h3><h4 id="3-1-算术运算符"><a href="#3-1-算术运算符" class="headerlink" title="3.1  算术运算符"></a>3.1  算术运算符</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ - * / %(求余) ++ --</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-关系运算符"><a href="#1-2-关系运算符" class="headerlink" title="1.2 关系运算符"></a>1.2 关系运算符</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">== != &gt; &lt; &gt;= &lt;=</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-逻辑运算符"><a href="#1-3-逻辑运算符" class="headerlink" title="1.3 逻辑运算符"></a>1.3 逻辑运算符</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&amp;&amp; </span><br><span class="line">||</span><br><span class="line">!</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-位运算符"><a href="#1-4-位运算符" class="headerlink" title="1.4 位运算符"></a>1.4 位运算符</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&amp;   且</span><br><span class="line">|	或</span><br><span class="line">^   异或</span><br><span class="line">&amp;^ 二进制位清空</span><br><span class="line">&lt;&lt; 左移位</span><br><span class="line">&gt;&gt; 右移位</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-赋值运算符"><a href="#1-5-赋值运算符" class="headerlink" title="1.5 赋值运算符"></a>1.5 赋值运算符</h4><p>和其他语言相同</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">=</span><br><span class="line">+=</span><br><span class="line">-=</span><br><span class="line">*=</span><br><span class="line">/=</span><br><span class="line">%=</span><br><span class="line">&lt;&lt;= 左移位并赋值运算符</span><br><span class="line">&gt;&gt;=	右移位并赋值运算符</span><br><span class="line">&amp;=	按位与赋值运算符</span><br><span class="line">^=	按位异或并赋值运算符</span><br><span class="line">|=	按位或并赋值运算符</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-6运算符优先级"><a href="#1-6运算符优先级" class="headerlink" title="1.6运算符优先级"></a>1.6运算符优先级</h4><table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>~ ! ++ –</td>
+</tr>
+<tr>
+<td>2</td>
+<td>* / % &lt;&lt; &gt;&gt; &amp; &amp;^</td>
+</tr>
+<tr>
+<td>3</td>
+<td>+ -  ^</td>
+</tr>
+<tr>
+<td>4</td>
+<td>== != &lt; &lt;= &gt;= &gt;</td>
+</tr>
+<tr>
+<td>5</td>
+<td>&lt;-</td>
+</tr>
+<tr>
+<td>6</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr>
+<td>7</td>
+<td>||</td>
+</tr>
+</tbody></table>
+<p>当然，你可以通过使用括号来临时提升某个表达式的整体运算优先级。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Oxywen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://oxywen.github.io/post/go/4/">https://oxywen.github.io/post/go/4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://oxywen.github.io">不闻星河须臾</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/note/">笔记</a><a class="post-meta__tags" href="/tags/go/">go</a></div><div class="social-share pull-right" data-disabled="facebook,google,twitter,diandian,linkedin"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="next-post pull-right"><a href="/post/go/3/"><span>变量常量</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/Valine1.3.10.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'EPD2p82uCKxOE9lfI7hiSp8e-gzGzoHsz',
+  appKey:'Ycr0GVDd8SzCOTyaHEhGRf0s',
+  placeholder:'评论时请留下您的昵称和邮箱，否则评论有关的消息可能无法及时通知给您',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'zh-cn'
+});
+
+$(document).ready(function(){ 
+  if($("#vcomment").html()){
+    var c_name = $('#vcomment input[name="nick"]');
+    var c_mail = $('#vcomment input[type="email"]');
+    var c_text = $('#veditor');
+    var mailzz = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    var c_placeholder = c_text.attr('placeholder');
+    $(".vcontrol .text-right button").hide();
+    $(".vcontrol .text-right").prepend('<span class="submit_f vbtn">回复</span>');
+    $('body').on('click','.submit_f',function(){
+      if(nullpd(c_name.val()) || !mailzz.test(c_mail.val())){
+        Tip("提交失败，昵称和邮箱不能为空或格式错误");
+        return false;
+      }
+      if(!c_text.val()){
+        Tip("提交失败，留言评论不能为空");
+        return false;
+      }
+      $('.vsubmit').click();
+    });
+    function nullpd(str){
+      if(str == "" || str == null || str == undefined){
+        return true;
+      }else{
+        return false;
+      }
+    }
+    function Tip(content){
+      const str = `<div class="valert text-center"><div class="vtext">`+content+`</div></div>`;
+      const vmark = document.querySelector('.vmark');
+      vmark.innerHTML = str;
+      vmark.style.display = 'block';
+      setTimeout(function() {
+        vmark.style.display = 'none';
+        vmark.innerHTML = '';
+      }, 1500);
+    }
+  }
+}); </script></div></div><footer class="footer-bg" style="background-image: url(https://ww2.yunjiexi.club/2019/05/01/DZvIP.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2020 By Oxywen</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script src="/js/search/local-search.js"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" data-click="false"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

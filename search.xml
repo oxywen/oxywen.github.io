@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>基于golang的教务管理系统之管理员端</title>
+      <link href="/post/go/demo/school/"/>
+      <url>/post/go/demo/school/</url>
+      
+      
+      <categories>
+          
+          <category> go </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Golang学习笔记-06切片</title>
       <link href="/post/go/7/"/>
       <url>/post/go/7/</url>
@@ -32,6 +55,31 @@
       <title>Golang学习笔记-05数组</title>
       <link href="/post/go/6/"/>
       <url>/post/go/6/</url>
+      
+      
+      <categories>
+          
+          <category> go </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Golang学习笔记-07Map</title>
+      <link href="/post/go/08/"/>
+      <url>/post/go/08/</url>
       
       
       <categories>

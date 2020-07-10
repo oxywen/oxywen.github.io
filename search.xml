@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>MySQL学习笔记</title>
+      <link href="/post/mysql/one-day/"/>
+      <url>/post/mysql/one-day/</url>
+      
+      
+      <categories>
+          
+          <category> mysql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基于golang的教务管理系统之管理员端</title>
       <link href="/post/go/demo/school/"/>
       <url>/post/go/demo/school/</url>

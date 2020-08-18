@@ -4,6 +4,23 @@
   
     
     <entry>
+      <title>图床跑路，博客大部分图片失效</title>
+      <link href="/post/daily/no-imgs/"/>
+      <url>/post/daily/no-imgs/</url>
+      
+      
+      <categories>
+          
+          <category> daily </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IDEA Surround With热键失效的解决办法</title>
       <link href="/post/java/idea/surround-with-hot-key-failure/"/>
       <url>/post/java/idea/surround-with-hot-key-failure/</url>
@@ -29,7 +46,7 @@
     
     
     <entry>
-      <title>MySQL学习笔记</title>
+      <title>MySQL快速入门</title>
       <link href="/post/mysql/one-day/"/>
       <url>/post/mysql/one-day/</url>
       
@@ -52,209 +69,9 @@
     
     
     <entry>
-      <title>基于golang的教务管理系统之管理员端</title>
-      <link href="/post/go/demo/school/"/>
-      <url>/post/go/demo/school/</url>
-      
-      
-      <categories>
-          
-          <category> go </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> go </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Golang学习笔记-06切片</title>
-      <link href="/post/go/7/"/>
-      <url>/post/go/7/</url>
-      
-      
-      <categories>
-          
-          <category> go </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> go </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Golang学习笔记-05数组</title>
-      <link href="/post/go/6/"/>
-      <url>/post/go/6/</url>
-      
-      
-      <categories>
-          
-          <category> go </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> go </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Golang学习笔记-07Map</title>
-      <link href="/post/go/08/"/>
-      <url>/post/go/08/</url>
-      
-      
-      <categories>
-          
-          <category> go </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> go </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Golang学习笔记-04流程控制</title>
-      <link href="/post/go/5/"/>
-      <url>/post/go/5/</url>
-      
-      
-      <categories>
-          
-          <category> go </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> go </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Golang学习笔记-03基本数据类型和运算符</title>
-      <link href="/post/go/4/"/>
-      <url>/post/go/4/</url>
-      
-      
-      <categories>
-          
-          <category> go </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> go </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Golang学习笔记-02变量常量</title>
-      <link href="/post/go/3/"/>
-      <url>/post/go/3/</url>
-      
-      
-      <categories>
-          
-          <category> go </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> go </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Golang学习笔记-01编码规范</title>
-      <link href="/post/go/2/"/>
-      <url>/post/go/2/</url>
-      
-      
-      <categories>
-          
-          <category> go </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> go </tag>
-            
-            <tag> 编码规范 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分享一些golang的笔记</title>
-      <link href="/post/go/1/"/>
-      <url>/post/go/1/</url>
+      <title>一点Golang的学习笔记</title>
+      <link href="/post/go/hello/"/>
+      <url>/post/go/hello/</url>
       
       
       <categories>
@@ -278,8 +95,8 @@
     
     <entry>
       <title>ASP.NET MVC开发基础</title>
-      <link href="/post/asp-net/4/"/>
-      <url>/post/asp-net/4/</url>
+      <link href="/post/asp-net/mvc/"/>
+      <url>/post/asp-net/mvc/</url>
       
       
       <categories>
@@ -361,33 +178,6 @@
       <title>ASP.NET WebFrom开发01-ASP.NET内置对象</title>
       <link href="/post/asp-net/1/"/>
       <url>/post/asp-net/1/</url>
-      
-      
-      <categories>
-          
-          <category> asp.net </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> asp.net </tag>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> webfrom </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>一点ASP.NET的笔记</title>
-      <link href="/post/asp-net/0/"/>
-      <url>/post/asp-net/0/</url>
       
       
       <categories>

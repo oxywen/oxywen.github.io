@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="ASP.NET WebFrom开发01-ASP.NET内置对象"><meta name="keywords" content="asp.net,笔记,webfrom"><meta name="author" content="Oxywen"><meta name="copyright" content="Oxywen"><title>ASP.NET WebFrom开发01-ASP.NET内置对象 | 不闻星河须臾</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="/pio/static/pio.css"><script src="/pio/static/l2d.js"></script><script src="/pio/static/pio.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6762629114964129',
+  enable_page_level_ads: 'true'
+});
+</script><link rel="dns-prefetch" href="https://hm.baidu.com"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ca2650c4c7f8c24a413550104d43d6f3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Page对象"><span class="toc-number">1.</span> <span class="toc-text">1、Page对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1、如何判断回发或者首次加载"><span class="toc-number">1.1.</span> <span class="toc-text">1.1、如何判断回发或者首次加载?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2、Load事件处理的标准框架写法"><span class="toc-number">1.2.</span> <span class="toc-text">1.2、Load事件处理的标准框架写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3、关于Page对象"><span class="toc-number">1.3.</span> <span class="toc-text">1.3、关于Page对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4、Page指令"><span class="toc-number">1.4.</span> <span class="toc-text">1.4、Page指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5、Page对象的属性和事件"><span class="toc-number">1.5.</span> <span class="toc-text">1.5、Page对象的属性和事件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、Request和Response对象"><span class="toc-number">2.</span> <span class="toc-text">2、Request和Response对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1、Request和Response对象产生的时机"><span class="toc-number">2.1.</span> <span class="toc-text">2.1、Request和Response对象产生的时机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2、Request和Response对象的本质"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.2、Request和Response对象的本质</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3、Request对象如何获取传递过来的数据"><span class="toc-number">2.2.</span> <span class="toc-text">2.3、Request对象如何获取传递过来的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-1、使用QueryString属性获取URL参数"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.3.1、使用QueryString属性获取URL参数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-2、使用Params获取URL参数"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.3.2、使用Params获取URL参数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-3、使用表单提交数据"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3.3、使用表单提交数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-4、获取web服务器变量的集合"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.3.4、获取web服务器变量的集合</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4、Response对象"><span class="toc-number">2.3.</span> <span class="toc-text">2.4、Response对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-1、Response对象用于操作页面的输出流"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.4.1、Response对象用于操作页面的输出流</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、ViewState对象"><span class="toc-number">3.</span> <span class="toc-text">3、ViewState对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1、理解无状态特性"><span class="toc-number">3.1.</span> <span class="toc-text">3.1、理解无状态特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2、在ASP-NET后台中信息保存办法"><span class="toc-number">3.2.</span> <span class="toc-text">3.2、在ASP.NET后台中信息保存办法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3、使用ViewState实现页面信息的保存"><span class="toc-number">3.3.</span> <span class="toc-text">3.3、使用ViewState实现页面信息的保存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4、总结"><span class="toc-number">3.4.</span> <span class="toc-text">3.4、总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Session对象"><span class="toc-number">4.</span> <span class="toc-text">4、Session对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1、在ASP-NET中不同页面之间共享信息的办法"><span class="toc-number">4.1.</span> <span class="toc-text">4.1、在ASP.NET中不同页面之间共享信息的办法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2、不同用户在选择商品时-Session如何区分不同用户的选择"><span class="toc-number">4.2.</span> <span class="toc-text">4.2、不同用户在选择商品时, Session如何区分不同用户的选择?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3、典型应用"><span class="toc-number">4.3.</span> <span class="toc-text">4.3、典型应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4、属性和方法"><span class="toc-number">4.4.</span> <span class="toc-text">4.4、属性和方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、Cookie对象"><span class="toc-number">5.</span> <span class="toc-text">5、Cookie对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1、Cookie对象特点"><span class="toc-number">5.1.</span> <span class="toc-text">5.1、Cookie对象特点</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2、Cookie对象的方法"><span class="toc-number">5.1.1.</span> <span class="toc-text">5.2、Cookie对象的方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、Application对象"><span class="toc-number">6.</span> <span class="toc-text">6、Application对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1、Application对象的特征"><span class="toc-number">6.1.</span> <span class="toc-text">6.1、Application对象的特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2、全局应用程序类：Global-asax"><span class="toc-number">6.2.</span> <span class="toc-text">6.2、全局应用程序类：Global.asax</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3、常用事件："><span class="toc-number">6.3.</span> <span class="toc-text">6.3、常用事件：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、ASP常用对象比较"><span class="toc-number">7.</span> <span class="toc-text">7、ASP常用对象比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、Server对象扩展"><span class="toc-number">8.</span> <span class="toc-text">8、Server对象扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1、关于server对象"><span class="toc-number">8.1.</span> <span class="toc-text">8.1、关于server对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2、Server对象的常用方法"><span class="toc-number">8.2.</span> <span class="toc-text">8.2、Server对象的常用方法</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://oxywen-cdn.lvhaoz.cn/img/avatar.jpg"></div><div class="author-info__name text-center">Oxywen</div><div class="author-info__description text-center"></div><div class="follow-button"><a href="https://github.com/oxywen" target="_blank" rel="noopener">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">10</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">10</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" href="https://waxxh.me/" target="_blank" rel="noopener">Waxxh's Blog</a><a class="author-info-links__name text-center" href="http://www.sweetsmoe.com/" target="_blank" rel="noopener">甜小萌</a><a class="author-info-links__name text-center" href="https://www.nmoe.cn/" target="_blank" rel="noopener">花落知雨</a><a class="author-info-links__name text-center" href="https://www.yuanshuli.com/" target="_blank" rel="noopener">碧海长天</a><a class="author-info-links__name text-center" href="https://www.xujianhua.com/" target="_blank" rel="noopener">许建华博客</a><a class="author-info-links__name text-center" href="https://yanqiyu.info/" target="_blank" rel="noopener">Karuboniru's Blog</a><a class="author-info-links__name text-center" href="https://littleblc.gitee.io/" target="_blank" rel="noopener">金毛小黑米</a></div></div></div><!-- 判断是否启用aplayer--><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><meting-js id="4944495601" server="netease" type="playlist" fixed="true" order="random" preload="auto" autoplay="false" loop="all" mutex="true" volume="0.7" list-olded="true" theme="#49b1f5"></meting-js><div class="pio-container" style="right:0;"><div class="pio-action"></div><canvas id="pio" width="300" height="256"></canvas></div><script type="text/javascript">var pio = new Paul_Pio({
+  "mode": "static",
+  "hidden": false,
+  "content": {
+  "welcome": ["你好，欢迎来到Oxywen的小窝，希望玩得开心","你好呀，我是Pio，傲完就娇的Pio~"],
+  "referer": "欢迎你，来自%t的用户",
+  },
+  "model": ["/pio/models/pio/model.json"]
+  })</script><div id="content-outer"><div id="top-container" style="background-image: url(http://oxywen-cdn.lvhaoz.cn/img/DZvIP.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">不闻星河须臾</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">ASP.NET WebFrom开发01-ASP.NET内置对象</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-31</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/asp-net/">asp.net</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.7k</span><span class="post-meta__separator">|</span><span>阅读时长: 6 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><blockquote>
+<p>这学期多了一门Web程序设计的课程，重点是这门课不是JavaWeb，而是ASP.NET的Web设计。学校总是开一些过时的课程，做一些过时的课程设计，但是为了学分又不得不花费时间去做，淦！</p>
+<p>这些笔记都是我在腾讯课堂和哔哩哔哩学习的过程中做下来的笔记，将会分为四篇分别上传，如果你拥有JavaWeb类似的Web开发经验，借助这些笔记，你就可以快速的上手ASP.NET Web开发。希望这些笔记对你能够有所帮助，good luck！</p>
+</blockquote>
+<h3 id="1、Page对象"><a href="#1、Page对象" class="headerlink" title="1、Page对象"></a>1、Page对象</h3><h4 id="1-1、如何判断回发或者首次加载"><a href="#1-1、如何判断回发或者首次加载" class="headerlink" title="1.1、如何判断回发或者首次加载?"></a>1.1、如何判断回发或者首次加载?</h4><p><img src="https://ww1.yunjiexi.club/2020/03/31/mM3wk.png" alt="如何判断回发或者首次加载"></p>
+<h4 id="1-2、Load事件处理的标准框架写法"><a href="#1-2、Load事件处理的标准框架写法" class="headerlink" title="1.2、Load事件处理的标准框架写法"></a>1.2、Load事件处理的标准框架写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">      protected void Page_Load(object sender, EventArgs e)</span><br><span class="line">      &#123;</span><br><span class="line">          if (!IsPostBack)&#x2F;&#x2F;页面是否是首次加载，首次加载返回false，回发返回true</span><br><span class="line">          &#123;</span><br><span class="line">              &#x2F;&#x2F;这里编写首次加载需要处理的工作</span><br><span class="line">          &#125;</span><br><span class="line">          else&#x2F;&#x2F;回发</span><br><span class="line">          &#123;</span><br><span class="line">              &#x2F;&#x2F;这里编写回发时需要处理的工作</span><br><span class="line">          &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3、关于Page对象"><a href="#1-3、关于Page对象" class="headerlink" title="1.3、关于Page对象"></a>1.3、关于Page对象</h4><blockquote>
+<p>①、每个.aspx文件对应- -个Page对象<br>②、.aspx页面与后台代码类 (局部类)合并生成页面类(第1讲中提过)<br>③、Page对象是页面类的实例<br>④、所有的.aspx文件 ( Web窗体页)都继承自System.Web.UI.Page类</p>
+</blockquote>
+<h4 id="1-4、Page指令"><a href="#1-4、Page指令" class="headerlink" title="1.4、Page指令"></a>1.4、Page指令</h4><p><img src="https://ww1.yunjiexi.club/2020/03/31/mMjez.png" alt="Page指令"></p>
+<h4 id="1-5、Page对象的属性和事件"><a href="#1-5、Page对象的属性和事件" class="headerlink" title="1.5、Page对象的属性和事件"></a>1.5、Page对象的属性和事件</h4><p><img src="https://ww1.yunjiexi.club/2020/03/31/mMPrV.png" alt="Page对象的属性和事件"></p>
+<h3 id="2、Request和Response对象"><a href="#2、Request和Response对象" class="headerlink" title="2、Request和Response对象"></a>2、Request和Response对象</h3><h4 id="2-1、Request和Response对象产生的时机"><a href="#2-1、Request和Response对象产生的时机" class="headerlink" title="2.1、Request和Response对象产生的时机"></a>2.1、Request和Response对象产生的时机</h4><p>HTTP请求→Request对象</p>
+<p>HTTP响应←Response对象</p>
+<h5 id="2-2、Request和Response对象的本质"><a href="#2-2、Request和Response对象的本质" class="headerlink" title="2.2、Request和Response对象的本质"></a>2.2、Request和Response对象的本质</h5><blockquote>
+<p>①、Request对象其实是HttpRequest对象,在页面类中系统自动创建。<br>②、Request对象封装了用户请求的信息(用户输入的信息或URL参数)。<br>③、Response对象封装服务器的响应信息。</p>
+</blockquote>
+<h4 id="2-3、Request对象如何获取传递过来的数据"><a href="#2-3、Request对象如何获取传递过来的数据" class="headerlink" title="2.3、Request对象如何获取传递过来的数据"></a>2.3、Request对象如何获取传递过来的数据</h4><p><img src="https://ww1.yunjiexi.club/2020/03/31/mMV6P.md.png" alt="Request对象如何获取传递过来的数据"></p>
+<h5 id="2-3-1、使用QueryString属性获取URL参数"><a href="#2-3-1、使用QueryString属性获取URL参数" class="headerlink" title="2.3.1、使用QueryString属性获取URL参数"></a>2.3.1、使用QueryString属性获取URL参数</h5><p>（只能获取在URL中个可以看到的参数）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用querystring属性获取url参数</span><br><span class="line">string name &#x3D; Request.QueryString[&quot;name&quot;];</span><br><span class="line">string age &#x3D; Request.QueryString[&quot;age&quot;];</span><br><span class="line">Response.Write(&quot;&quot;); &#x2F;&#x2F;会将内容输出到页面的最顶部 ，是&lt;!docment&gt;的前面</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-2、使用Params获取URL参数"><a href="#2-3-2、使用Params获取URL参数" class="headerlink" title="2.3.2、使用Params获取URL参数"></a>2.3.2、使用Params获取URL参数</h5><p>（其他方面提交的也可以获取）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string name &#x3D; Request.Params[&quot;name&quot;];</span><br><span class="line">string age &#x3D; Request.Params[&quot;age&quot;];</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-3、使用表单提交数据"><a href="#2-3-3、使用表单提交数据" class="headerlink" title="2.3.3、使用表单提交数据"></a>2.3.3、使用表单提交数据</h5><p>（和HttpHandler获取参数完全相同）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> public void ProcessRequest(HttpContext context)</span><br><span class="line">&#123;</span><br><span class="line">      context.Response.ContentType &#x3D; &quot;text&#x2F;plain&quot;;</span><br><span class="line">      &#x2F;&#x2F;获取前台提交的数据</span><br><span class="line">      string user &#x3D; context.Request.Params[&quot;username&quot;];</span><br><span class="line">      string password &#x3D; context.Request.Params[&quot;password&quot;];</span><br><span class="line">      &#x2F;&#x2F;调用数据访问方法判断用户名或者密码是否正确</span><br><span class="line">      DAL.AdminService adminService &#x3D; new AdminService();</span><br><span class="line">      if(adminService.AdminLogin(user,password))</span><br><span class="line">      &#123;</span><br><span class="line">           context.Response.Write(&quot;登录成功！欢迎你 &quot;+user);</span><br><span class="line">      &#125;</span><br><span class="line">      else</span><br><span class="line">      &#123;</span><br><span class="line">           context.Response.Write(&quot;登录失败！&quot;);</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-4、获取web服务器变量的集合"><a href="#2-3-4、获取web服务器变量的集合" class="headerlink" title="2.3.4、获取web服务器变量的集合"></a>2.3.4、获取web服务器变量的集合</h5><p>（就是获取浏览器的请求头Request Header中的信息）</p>
+<p><img src="https://ww1.yunjiexi.club/2020/03/31/mMWJX.png" alt="取web服务器变量的集合"></p>
+<h4 id="2-4、Response对象"><a href="#2-4、Response对象" class="headerlink" title="2.4、Response对象"></a>2.4、Response对象</h4><h5 id="2-4-1、Response对象用于操作页面的输出流"><a href="#2-4-1、Response对象用于操作页面的输出流" class="headerlink" title="2.4.1、Response对象用于操作页面的输出流"></a>2.4.1、Response对象用于操作页面的输出流</h5><blockquote>
+<p>Wirte(“string”) 方法：直接在页面上输出内容（在页面的最顶端输出）</p>
+<p>Redirect(“url”) 方法：重定向到另一个页面（通过后台程序控制页面跳转）</p>
+</blockquote>
+<h3 id="3、ViewState对象"><a href="#3、ViewState对象" class="headerlink" title="3、ViewState对象"></a>3、ViewState对象</h3><p>HTTP协议是”无状态”的，造成服务器无缘记住特定的用户请求。保存数据的范围仅限于当前页面，无法实现不同页面数据的交互</p>
+<h4 id="3-1、理解无状态特性"><a href="#3-1、理解无状态特性" class="headerlink" title="3.1、理解无状态特性"></a>3.1、理解无状态特性</h4><blockquote>
+<p>Web服务器不会保留每次浏览器所发HTTP请求的具体信息和当时的状态。<br>即使请求来自同一个浏览器，它也将其视为“陌生人”,绝不会“记得”浏览器在不久之前曾经“拜访”过自己</p>
+</blockquote>
+<h4 id="3-2、在ASP-NET后台中信息保存办法"><a href="#3-2、在ASP-NET后台中信息保存办法" class="headerlink" title="3.2、在ASP.NET后台中信息保存办法"></a>3.2、在ASP.NET后台中信息保存办法</h4><blockquote>
+<p>ASP.NET专门提供了在一个网页多次请求之间保存信息的对象: ViewState (视图状态)对象来模拟“成员变量”的角色。</p>
+</blockquote>
+<h4 id="3-3、使用ViewState实现页面信息的保存"><a href="#3-3、使用ViewState实现页面信息的保存" class="headerlink" title="3.3、使用ViewState实现页面信息的保存"></a>3.3、使用ViewState实现页面信息的保存</h4><p><img src="https://ww1.yunjiexi.club/2020/03/31/mM2Gw.png" alt="使用ViewState实现页面信息的保存"></p>
+<h4 id="3-4、总结"><a href="#3-4、总结" class="headerlink" title="3.4、总结"></a>3.4、总结</h4><ol>
+<li>ViewState中保存的数据全部被转换成object类型,取出时务必强制转换成特定类型。</li>
+<li>ViewState只能在同一个页面的连续多次请求之间保存信息,页面跳转后信息就会丢失。</li>
+</ol>
+<h3 id="4、Session对象"><a href="#4、Session对象" class="headerlink" title="4、Session对象"></a>4、Session对象</h3><h4 id="4-1、在ASP-NET中不同页面之间共享信息的办法"><a href="#4-1、在ASP-NET中不同页面之间共享信息的办法" class="headerlink" title="4.1、在ASP.NET中不同页面之间共享信息的办法"></a>4.1、在ASP.NET中不同页面之间共享信息的办法</h4><p>ViewState对象无法实现不同页面数据交换</p>
+<p>Session对象：在ASP.NET中不同页面之间共享信息的办法，也是以键值对存取数据、</p>
+<h4 id="4-2、不同用户在选择商品时-Session如何区分不同用户的选择"><a href="#4-2、不同用户在选择商品时-Session如何区分不同用户的选择" class="headerlink" title="4.2、不同用户在选择商品时, Session如何区分不同用户的选择?"></a>4.2、不同用户在选择商品时, Session如何区分不同用户的选择?</h4><ul>
+<li>Web 服务器根据SessionlD来区分不同用户,它是一个很长的字符串。</li>
+<li>SessionID在用户第一 次访问时由Web服务器产生并由用户浏览器保存。</li>
+<li>用户每次的操作,浏览器在向服务器请求时都会带着自己的SessionlD.</li>
+</ul>
+<h4 id="4-3、典型应用"><a href="#4-3、典型应用" class="headerlink" title="4.3、典型应用"></a>4.3、典型应用</h4><ul>
+<li>不用页面之间需要传递较为复杂的数据(如对象)。</li>
+<li>保存用户的登录信息,未登录者禁止访问相关页面。</li>
+</ul>
+<h4 id="4-4、属性和方法"><a href="#4-4、属性和方法" class="headerlink" title="4.4、属性和方法"></a>4.4、属性和方法</h4><p><img src="https://ww1.yunjiexi.club/2020/03/31/mMNFQ.png" alt="Session对象属性和方法"></p>
+<h3 id="5、Cookie对象"><a href="#5、Cookie对象" class="headerlink" title="5、Cookie对象"></a>5、Cookie对象</h3><h4 id="5-1、Cookie对象特点"><a href="#5-1、Cookie对象特点" class="headerlink" title="5.1、Cookie对象特点"></a>5.1、Cookie对象特点</h4><ul>
+<li>存储少量不重要的数据</li>
+<li>存储在客户端的文本文件中(必须设置有效期,否则不被存储)</li>
+<li>安全性差</li>
+<li>存储的数据类型：字符串</li>
+<li>浏览器窗口无关,但与访问的站点相关</li>
+<li>具体特定的过期时间和日期</li>
+<li>在客户端存储后,将随着浏览器对相关网站页面请求而一并发送到Web 服务器</li>
+</ul>
+<h5 id="5-2、Cookie对象的方法"><a href="#5-2、Cookie对象的方法" class="headerlink" title="5.2、Cookie对象的方法"></a>5.2、Cookie对象的方法</h5><p>创建方法一：Response.Cookies[“cookieName”].Value=cookieValue;</p>
+<p>创建方法二：HttpCookie cookie=new HttpCookie(cookieName,cookieValue)</p>
+<p>读取方法：Request.Cookie[“cookieName”].Value</p>
+<p>设置有效期：Response.Cookies[“cookieName”].Expires= DateTime.Now.AddDays(1.0); //过期时间</p>
+<h3 id="6、Application对象"><a href="#6、Application对象" class="headerlink" title="6、Application对象"></a>6、Application对象</h3><p>生存时间：应用程序级别，</p>
+<p>使用application对象前必须先声明加锁 Application.Lock();</p>
+<p>使用完application对象后记得解锁 Application.UnLock();</p>
+<h4 id="6-1、Application对象的特征"><a href="#6-1、Application对象的特征" class="headerlink" title="6.1、Application对象的特征"></a>6.1、Application对象的特征</h4><ul>
+<li>位置:服务器内存,执行速度快。</li>
+<li>使用范围:整个应用程序。</li>
+<li>类型:任意类型。</li>
+<li>生命周期:应用程序开始创建到销毁。</li>
+<li>使用方法：与session相同，采用键值对方式</li>
+</ul>
+<h4 id="6-2、全局应用程序类：Global-asax"><a href="#6-2、全局应用程序类：Global-asax" class="headerlink" title="6.2、全局应用程序类：Global.asax"></a>6.2、全局应用程序类：Global.asax</h4><ul>
+<li>处理应用程序级时间的可选文件</li>
+<li>必须放在应用程序的根目录下<h4 id="6-3、常用事件："><a href="#6-3、常用事件：" class="headerlink" title="6.3、常用事件："></a>6.3、常用事件：</h4></li>
+</ul>
+<p><img src="https://ww1.yunjiexi.club/2020/03/31/mMRlq.png" alt="Application对象常用事件"></p>
+<h3 id="7、ASP常用对象比较"><a href="#7、ASP常用对象比较" class="headerlink" title="7、ASP常用对象比较"></a>7、ASP常用对象比较</h3><p><img src="https://ww1.yunjiexi.club/2020/03/31/mMG1C.png" alt="ASP常用对象比较"></p>
+<h3 id="8、Server对象扩展"><a href="#8、Server对象扩展" class="headerlink" title="8、Server对象扩展"></a>8、Server对象扩展</h3><h4 id="8-1、关于server对象"><a href="#8-1、关于server对象" class="headerlink" title="8.1、关于server对象"></a>8.1、关于server对象</h4><p>server对象是HttpServerUtility的一个实例，它提供对服务器上的方法和属性的访问</p>
+<h4 id="8-2、Server对象的常用方法"><a href="#8-2、Server对象的常用方法" class="headerlink" title="8.2、Server对象的常用方法"></a>8.2、Server对象的常用方法</h4><p>MapPath方法：获取服务器上文件的物理路径</p>
+<p>Server.Transfer()方法：server对象实现服务器端网页跳转的方法，跳转后地址栏没有变化（JSP中的请求转发）</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Oxywen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://oxywen.cn/post/asp-net/1/">https://oxywen.cn/post/asp-net/1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://oxywen.cn">不闻星河须臾</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/asp-net/">asp.net</a><a class="post-meta__tags" href="/tags/note/">笔记</a><a class="post-meta__tags" href="/tags/webfrom/">webfrom</a></div><div class="social-share pull-right" data-disabled="facebook,google,twitter,diandian,linkedin"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/post/asp-net/2/"><i class="fa fa-chevron-left">  </i><span>ASP.NET WebFrom开发02-常用控件与文件上传</span></a></div><div class="next-post pull-right"><a href="/post/hexo/1/"><span>hexo+github驱动个人博客</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/Valine1.3.10.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'EPD2p82uCKxOE9lfI7hiSp8e-gzGzoHsz',
+  appKey:'Ycr0GVDd8SzCOTyaHEhGRf0s',
+  placeholder:'评论时请留下您的昵称和邮箱，否则评论有关的消息可能无法及时通知给您',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'zh-cn'
+});
+
+$(document).ready(function(){ 
+  if($("#vcomment").html()){
+    var c_name = $('#vcomment input[name="nick"]');
+    var c_mail = $('#vcomment input[type="email"]');
+    var c_text = $('#veditor');
+    var mailzz = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    var c_placeholder = c_text.attr('placeholder');
+    $(".vcontrol .text-right button").hide();
+    $(".vcontrol .text-right").prepend('<span class="submit_f vbtn">回复</span>');
+    $('body').on('click','.submit_f',function(){
+      if(nullpd(c_name.val()) || !mailzz.test(c_mail.val())){
+        Tip("提交失败，昵称和邮箱不能为空或格式错误");
+        return false;
+      }
+      if(!c_text.val()){
+        Tip("提交失败，留言评论不能为空");
+        return false;
+      }
+      $('.vsubmit').click();
+    });
+    function nullpd(str){
+      if(str == "" || str == null || str == undefined){
+        return true;
+      }else{
+        return false;
+      }
+    }
+    function Tip(content){
+      const str = `<div class="valert text-center"><div class="vtext">`+content+`</div></div>`;
+      const vmark = document.querySelector('.vmark');
+      vmark.innerHTML = str;
+      vmark.style.display = 'block';
+      setTimeout(function() {
+        vmark.style.display = 'none';
+        vmark.innerHTML = '';
+      }, 1500);
+    }
+  }
+}); </script></div></div><footer class="footer-bg" style="background-image: url(http://oxywen-cdn.lvhaoz.cn/img/DZvIP.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2020 By Oxywen</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script src="/js/search/local-search.js"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" data-click="false"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

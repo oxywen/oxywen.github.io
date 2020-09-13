@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="ASP.NET MVC开发基础"><meta name="keywords" content="asp.net,笔记,mvc"><meta name="author" content="Oxywen"><meta name="copyright" content="Oxywen"><title>ASP.NET MVC开发基础 | 不闻星河须臾</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="/pio/static/pio.css"><script src="/pio/static/l2d.js"></script><script src="/pio/static/pio.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-6762629114964129',
+  enable_page_level_ads: 'true'
+});
+</script><link rel="dns-prefetch" href="https://hm.baidu.com"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ca2650c4c7f8c24a413550104d43d6f3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Controller（类）"><span class="toc-number">1.</span> <span class="toc-text">1、Controller（类）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、Action（方法）"><span class="toc-number">2.</span> <span class="toc-text">2、Action（方法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Controller默认代码"><span class="toc-number">3.</span> <span class="toc-text">3、Controller默认代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1、View-是什么"><span class="toc-number">3.1.</span> <span class="toc-text">3.1、View() 是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2、ActionResult是什么"><span class="toc-number">3.2.</span> <span class="toc-text">3.2、ActionResult是什么</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、URL匹配模式"><span class="toc-number">4.</span> <span class="toc-text">4、URL匹配模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1、routes-MapRoute-方法有什么用？"><span class="toc-number">4.1.</span> <span class="toc-text">4.1、routes.MapRoute()方法有什么用？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2、该怎么用？"><span class="toc-number">4.2.</span> <span class="toc-text">4.2、该怎么用？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、获取客户端的数据"><span class="toc-number">5.</span> <span class="toc-text">5、获取客户端的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1、表单数据"><span class="toc-number">5.1.</span> <span class="toc-text">5.1、表单数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2、URL上的数据"><span class="toc-number">5.2.</span> <span class="toc-text">5.2、URL上的数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3、路由数据"><span class="toc-number">5.3.</span> <span class="toc-text">5.3、路由数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4、方法上的参数"><span class="toc-number">5.4.</span> <span class="toc-text">5.4、方法上的参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、控制器传递数据到视图"><span class="toc-number">6.</span> <span class="toc-text">6、控制器传递数据到视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1、ViewBag和ViewData"><span class="toc-number">6.1.</span> <span class="toc-text">6.1、ViewBag和ViewData</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2、TempData"><span class="toc-number">6.2.</span> <span class="toc-text">6.2、TempData</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3、强类型视图"><span class="toc-number">6.3.</span> <span class="toc-text">6.3、强类型视图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#6-3-1、控制器参数为Model类型"><span class="toc-number">6.3.1.</span> <span class="toc-text">6.3.1、控制器参数为Model类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-3-2、Return-View-Model对象"><span class="toc-number">6.3.2.</span> <span class="toc-text">6.3.2、Return View(Model对象)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-3-3、定义视图Model的类型"><span class="toc-number">6.3.3.</span> <span class="toc-text">6.3.3、定义视图Model的类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-3-4、页面获取model数据的方式"><span class="toc-number">6.3.4.</span> <span class="toc-text">6.3.4、页面获取model数据的方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-3-5、数据绑定"><span class="toc-number">6.3.5.</span> <span class="toc-text">6.3.5、数据绑定</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、表单数据验证"><span class="toc-number">7.</span> <span class="toc-text">7、表单数据验证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1、验证规则写在哪里"><span class="toc-number">7.1.</span> <span class="toc-text">7.1、验证规则写在哪里</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2、如何编写使用验证规则"><span class="toc-number">7.2.</span> <span class="toc-text">7.2、如何编写使用验证规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3、客户端验证"><span class="toc-number">7.3.</span> <span class="toc-text">7.3、客户端验证</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、HtmlHelper工具类"><span class="toc-number">8.</span> <span class="toc-text">8、HtmlHelper工具类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1、为什么使用HtmlHelper生成HTML？"><span class="toc-number">8.1.</span> <span class="toc-text">8.1、为什么使用HtmlHelper生成HTML？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2、如何使用HtmlHelper生成表单？"><span class="toc-number">8.2.</span> <span class="toc-text">8.2、如何使用HtmlHelper生成表单？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、Razor视图"><span class="toc-number">9.</span> <span class="toc-text">9、Razor视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-1、母版页"><span class="toc-number">9.1.</span> <span class="toc-text">9.1、母版页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-2、代码块"><span class="toc-number">9.2.</span> <span class="toc-text">9.2、代码块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3、语句块"><span class="toc-number">9.3.</span> <span class="toc-text">9.3、语句块</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#9-3-1、分支"><span class="toc-number">9.3.1.</span> <span class="toc-text">9.3.1、分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-3-2、循环"><span class="toc-number">9.3.2.</span> <span class="toc-text">9.3.2、循环</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-4、视图类型的声明"><span class="toc-number">9.4.</span> <span class="toc-text">9.4、视图类型的声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-5、命名空间的引用"><span class="toc-number">9.5.</span> <span class="toc-text">9.5、命名空间的引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、分区项目"><span class="toc-number">10.</span> <span class="toc-text">10、分区项目</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://oxywen-cdn.lvhaoz.cn/img/avatar.jpg"></div><div class="author-info__name text-center">Oxywen</div><div class="author-info__description text-center"></div><div class="follow-button"><a href="https://github.com/oxywen" target="_blank" rel="noopener">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">10</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">10</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" href="https://waxxh.me/" target="_blank" rel="noopener">Waxxh's Blog</a><a class="author-info-links__name text-center" href="http://www.sweetsmoe.com/" target="_blank" rel="noopener">甜小萌</a><a class="author-info-links__name text-center" href="https://www.nmoe.cn/" target="_blank" rel="noopener">花落知雨</a><a class="author-info-links__name text-center" href="https://www.yuanshuli.com/" target="_blank" rel="noopener">碧海长天</a><a class="author-info-links__name text-center" href="https://www.xujianhua.com/" target="_blank" rel="noopener">许建华博客</a><a class="author-info-links__name text-center" href="https://yanqiyu.info/" target="_blank" rel="noopener">Karuboniru's Blog</a><a class="author-info-links__name text-center" href="https://littleblc.gitee.io/" target="_blank" rel="noopener">金毛小黑米</a></div></div></div><!-- 判断是否启用aplayer--><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><meting-js id="4944495601" server="netease" type="playlist" fixed="true" order="random" preload="auto" autoplay="false" loop="all" mutex="true" volume="0.7" list-olded="true" theme="#49b1f5"></meting-js><div class="pio-container" style="right:0;"><div class="pio-action"></div><canvas id="pio" width="300" height="256"></canvas></div><script type="text/javascript">var pio = new Paul_Pio({
+  "mode": "static",
+  "hidden": false,
+  "content": {
+  "welcome": ["你好，欢迎来到Oxywen的小窝，希望玩得开心","你好呀，我是Pio，傲完就娇的Pio~"],
+  "referer": "欢迎你，来自%t的用户",
+  },
+  "model": ["/pio/models/pio/model.json"]
+  })</script><div id="content-outer"><div id="top-container" style="background-image: url(http://oxywen-cdn.lvhaoz.cn/img/DZvIP.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">不闻星河须臾</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">ASP.NET MVC开发基础</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-31</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/asp-net/">asp.net</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">3k</span><span class="post-meta__separator">|</span><span>阅读时长: 11 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h3 id="1、Controller（类）"><a href="#1、Controller（类）" class="headerlink" title="1、Controller（类）"></a>1、Controller（类）</h3><ul>
+<li>控制器（类）名必须以Controller结尾</li>
+<li>必须继承Controller抽象类</li>
+<li>必须是public的</li>
+</ul>
+<h3 id="2、Action（方法）"><a href="#2、Action（方法）" class="headerlink" title="2、Action（方法）"></a>2、Action（方法）</h3><ul>
+<li>方法必须是public的</li>
+<li>方法不能加[NoAction]特性</li>
+<li>controller中方法不能直接重载，重载的方法需要通过特性区分</li>
+</ul>
+<p><img src="https://ww1.yunjiexi.club/2020/03/31/mMYa0.png" alt="image-20200226134350670"></p>
+<ul>
+<li><p>判断请求类型还可以通过以下语句</p>
+<p><code>if(&quot;get&quot;.Equals(Request.HttpMethod,StringComparison.CurrentCultureIgnoreCase))</code></p>
+</li>
+<li><p>通过特性给action取别名：[ActionName(“别名”)]</p>
+</li>
+</ul>
+<h3 id="3、Controller默认代码"><a href="#3、Controller默认代码" class="headerlink" title="3、Controller默认代码"></a>3、Controller默认代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public ActionResult Index()</span><br><span class="line">&#123;</span><br><span class="line">    return View();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1、View-是什么"><a href="#3-1、View-是什么" class="headerlink" title="3.1、View() 是什么"></a>3.1、View() 是什么</h4><p>View()方法是从Controller类继承下来的方法，有以下8个重载（若返回视图，都不会指定后缀名）</p>
+<ol>
+<li><p>View() : 返回与Action名相同的视图文件。假设控制器为Account，Action为UserList,，View()等价于View(“UserList”)</p>
+</li>
+<li><p>View(Object)文件查找同上，将Model传递到页面</p>
+</li>
+<li><p>View(String)呈现指定的视图文件，（可以传名称或具体路径，名称必须不带后缀名，路径必须带后缀名）</p>
+</li>
+<li><p>View(IView)呈现自定义的视图</p>
+</li>
+<li><p>View(String, Object) 在指定的页面传递Model对象</p>
+</li>
+<li><p>View(String, String)在视图页面使用母版页,第二个参数为母版页的路径</p>
+</li>
+<li><p>View(IView, Object)在自定义视图中传递Model对象</p>
+</li>
+<li><p>View(String, String, Object)是在使用母版页的视图中传ModelI对象</p>
+<p><img src="https://ww1.yunjiexi.club/2020/03/31/mMfVt.png" alt="默认文件查找顺序"></p>
+</li>
+</ol>
+<h4 id="3-2、ActionResult是什么"><a href="#3-2、ActionResult是什么" class="headerlink" title="3.2、ActionResult是什么"></a>3.2、ActionResult是什么</h4><p>ActionResult是一个抽象类</p>
+<p>Action方法必须返回ActionResult类型吗？实际上可以返回任何有效的数据类型</p>
+<p>ActionResult的子类：</p>
+<ol>
+<li><p>System.Web.Mvc.ContentResult :返回一串字符串<br>示例: return Content(“ASP.NET MVC”);</p>
+</li>
+<li><p>System.Web.Mvc.EmptyResult :返回空内容<br>示例: retum new EmptyResult();</p>
+</li>
+<li><p>System.Web.Mvc.FileResult :返回一个文件，典型应用：制作验证码</p>
+<p>System.Web.Mvc. FileContentResult<br>示例: retum new FileContentResul(new byte[1024], “image/jpeg”);</p>
+<p>System.Web.Mvc. FilePathResult<br>示例: returm new FilePathResul(“logo jpg”, “image/ipeg”);</p>
+<p>System.Web.Mvc.FileStreamResult<br>示例: return new FileStreamResult(new FileStream(“logo.jpg”, FileMode.Open), “image/jpeg”);<br>总结:可以使用File()方法完成对上面三个子类的使用</p>
+</li>
+<li><p>System.Web.Mvc.HttpUnauthorizedResult :未经授权的请求结果<br>示例: returm new HttpUnauthorizedResult();</p>
+</li>
+<li><p>System.Web.MvcJavaScriptResult :返回JS脚本<br>示例: return JavaScript(“<script></script>“);</p>
+</li>
+<li><p>System.Web.Mvc.JsonResult :返回Json格式,常用于Ajax的应用【ajax】<br>示例: retum Json(new {Name=”jack” ,Age=20 }, JsonRequestBehavior.AllowGet);</p>
+</li>
+<li><p>System.Web.Mvc.RedirectResult :重定向站内或站外<br>示例: retum Redirect(“url”);</p>
+</li>
+<li><p>System.Web.Mvc. RedirectToRouteResult :站内请求<br>示例: return RedirectToAction(“Login”);    //根据控制器和Action<br>return RedirectToRoute(“Defaul”);   //根据路由名称</p>
+</li>
+<li><p>System.Web.Mvc.ViewResultBase:返回视图</p>
+<p>System.Web.Mvc. PartialViewResult :部分视图<br>示例: return PartialView(“~/Views/Account/UserLogin.ascx”);</p>
+<p>System.Web.Mvc.ViewResult :视图结果<br>示例: return View(“ -/Views/Account/UserLogin.aspx”);</p>
+<p>区别: PartialViewResult和ViewResult都能返回动态视图，两者使用的方式是一样的<br>只能从逻辑上区分。部分视图用于嵌入到视图页面，部分视图通常返回用户控件</p>
+</li>
+</ol>
+<h3 id="4、URL匹配模式"><a href="#4、URL匹配模式" class="headerlink" title="4、URL匹配模式"></a>4、URL匹配模式</h3><h4 id="4-1、routes-MapRoute-方法有什么用？"><a href="#4-1、routes-MapRoute-方法有什么用？" class="headerlink" title="4.1、routes.MapRoute()方法有什么用？"></a>4.1、routes.MapRoute()方法有什么用？</h4><p>映射指定的URL路由。是类RouteCollection的扩展方法。</p>
+<h4 id="4-2、该怎么用？"><a href="#4-2、该怎么用？" class="headerlink" title="4.2、该怎么用？"></a>4.2、该怎么用？</h4><p>方法参数解析：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public static Route MapRoute(this RouteCollection routes, string name, string url, object defaults, object constraints, string[] namespaces);</span><br><span class="line">-----------------------------------------------------</span><br><span class="line">this RouteCollection routes: MapRoute()方法的扩展类</span><br><span class="line">    </span><br><span class="line">string name:路由名称，名称必须唯一. 不能有相同的路由名称，可以为null（可以通过路由name获取路由）</span><br><span class="line">    </span><br><span class="line">string url: URL模式（例如 url: &quot;Student&#x2F;&#123;controller&#125;&#x2F;&#123;action&#125;&#x2F;&#123;id&#125;&quot;）</span><br><span class="line">    </span><br><span class="line">Object defaults:占位符的默认值，在含有字面量的url模式中，字面量前面的默认值没用（特别注意默认值的特殊符号，如-）。</span><br><span class="line">    </span><br><span class="line">Object constraints:占位符数据约束</span><br><span class="line">    urt &quot;controller&#x2F;&#123;action&#125;&#x2F;&#123;age&#125;&quot;,要求: age必须是数字,第一位不能为零，其它形式视为无效,约束的写法：constraints:new &#123; age&#x3D; @&quot;[1-9]]|\d&#123;2&#125;&quot; &#125; 一位或是两位数字都是有效的</span><br><span class="line"></span><br><span class="line">string[] namespaces: 命名空间，解决控制器名相同导致的错误</span><br><span class="line">----------------------------------------------------</span><br><span class="line">&#x2F;*</span><br><span class="line">URL组成：</span><br><span class="line">    字面量：固有的字符串，例如Student</span><br><span class="line">    占位符：用于获取url信息的一个标识符，也可称为变量名，例如&#123;controller&#125;</span><br><span class="line">			注意：&#123;controller&#125;和&#123;action&#125;必须要有，出现位置不限，是MVC约定的名称。URL中要特别注意空格。</span><br><span class="line">    分隔符：&#x2F;</span><br><span class="line">    特殊的匹配符：*，匹配剩余的部分，一般放在最后的参数，如url:“&#123;controller&#125;&#x2F;&#123;action&#125;&#x2F;&#123;*name&#125;”,访问url为 admin&#x2F;login&#x2F;a&#x2F;b&#x2F;c,则name&#x3D;a&#x2F;b&#x2F;c。贪婪匹配规则：优先匹配完前面的占位符的所有可能性，再匹配后面的占位符</span><br><span class="line">    无效的URL格式：不能以&#x2F;或~字符开头，不能有?，占位符不能连续。</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>路由从上到下搜索，越放在前面，优先级越高。建议：通用的URL放在最前面，具体越详细的URL放到最后面</p>
+<h3 id="5、获取客户端的数据"><a href="#5、获取客户端的数据" class="headerlink" title="5、获取客户端的数据"></a>5、获取客户端的数据</h3><h4 id="5-1、表单数据"><a href="#5-1、表单数据" class="headerlink" title="5.1、表单数据"></a>5.1、表单数据</h4><p>Request.Form[“name”]，根据表单中元素的name属性获取其value</p>
+<h4 id="5-2、URL上的数据"><a href="#5-2、URL上的数据" class="headerlink" title="5.2、URL上的数据"></a>5.2、URL上的数据</h4><p>Request.QueryString[“name”]，获取url中的参数</p>
+<p>IE地址栏输入中文会导致获取到的数据乱码（需要改变全局的编码格式为gb23312）</p>
+<h4 id="5-3、路由数据"><a href="#5-3、路由数据" class="headerlink" title="5.3、路由数据"></a>5.3、路由数据</h4><p>object obj=RouterData.Values[“name”]</p>
+<h4 id="5-4、方法上的参数"><a href="#5-4、方法上的参数" class="headerlink" title="5.4、方法上的参数"></a>5.4、方法上的参数</h4><p>public ActionResult Register(string name)，可映射为表单元素、URL参数、路由数据<br>如果有name有冲突，优先级顺序是:表单元素&gt;路由数据&gt;URL参数</p>
+<p>获取时，可以使用name,(string name)必须与要获取的数据name同名</p>
+<p>注意：对于方法的参数如果是非空类型的,例如int ,没有传递相应的值会引发异常。(解决的方法就是使用参数默认值int age=0 )</p>
+<h3 id="6、控制器传递数据到视图"><a href="#6、控制器传递数据到视图" class="headerlink" title="6、控制器传递数据到视图"></a>6、控制器传递数据到视图</h3><h4 id="6-1、ViewBag和ViewData"><a href="#6-1、ViewBag和ViewData" class="headerlink" title="6.1、ViewBag和ViewData"></a>6.1、ViewBag和ViewData</h4><p>ViewBag是dynamic类型<br>例如: ViewBag.dataName= “ASP.NET MVC”（类似于Python中的弱类型）</p>
+<p>ViewData是Object类型<br>例如: ViewData[“ dataName”]= “Hello ASP.NET”</p>
+<p>ViewBag和ViewData操作的是同一个数据源，如果添加的key相同则覆盖，例如：ViewBag.age和ViewData[“age”]是相同的。建议:在同一个项目两者中选一个比较好</p>
+<p>特点：生命周期比较短，重定向后数据销毁（丢失），作用于ViewResult指向的视图</p>
+<h4 id="6-2、TempData"><a href="#6-2、TempData" class="headerlink" title="6.2、TempData"></a>6.2、TempData</h4><p>保存的机制是Session ,跳转是将数据保存到Session ,进入控制器从Session移除</p>
+<p>重定向后数据不会丢失</p>
+<p>使用赋值 TempData[“name”]=value;</p>
+<h4 id="6-3、强类型视图"><a href="#6-3、强类型视图" class="headerlink" title="6.3、强类型视图"></a>6.3、强类型视图</h4><h5 id="6-3-1、控制器参数为Model类型"><a href="#6-3-1、控制器参数为Model类型" class="headerlink" title="6.3.1、控制器参数为Model类型"></a>6.3.1、控制器参数为Model类型</h5><p>public ActionResult Register(Student student)，会将提交的表单映射成Model，表单中所有控件的name必须与Model的属性一一对应【不区分大小写！】</p>
+<h5 id="6-3-2、Return-View-Model对象"><a href="#6-3-2、Return-View-Model对象" class="headerlink" title="6.3.2、Return View(Model对象)"></a>6.3.2、Return View(Model对象)</h5><h5 id="6-3-3、定义视图Model的类型"><a href="#6-3-3、定义视图Model的类型" class="headerlink" title="6.3.3、定义视图Model的类型"></a>6.3.3、定义视图Model的类型</h5><p>声明：Razor视图   </p>
+<p>​                        单个model使用：@model MVC_Models.Models.Movie</p>
+<p>​                        model集合使用：@model IEnumerable&lt;MVC_Models.Models.Movie&gt;</p>
+<h5 id="6-3-4、页面获取model数据的方式"><a href="#6-3-4、页面获取model数据的方式" class="headerlink" title="6.3.4、页面获取model数据的方式"></a>6.3.4、页面获取model数据的方式</h5><ul>
+<li>@Model.StudentName；,只用于显示，不能给model赋值，StudentName为属性的名称</li>
+<li>@Html.TextBox(“StudentName”)；，适用于表单元素，能够赋值给model，StudentName为属性的名称，不区分大小写</li>
+<li>@Html.TextBox(“stu.StudentName”)；，stu为Action的参数名，StudentName为属性的名称，不区分大小写。这种方式适用于表单元素，能够赋值给Model，注意初始化的内容不会显示</li>
+</ul>
+<h5 id="6-3-5、数据绑定"><a href="#6-3-5、数据绑定" class="headerlink" title="6.3.5、数据绑定"></a>6.3.5、数据绑定</h5><p>通过Bind特性设置Model绑定的方式</p>
+<p>Bind是BindAttribute别名，需要引用命名空间System.Web.Mvc</p>
+<p>有三个重要的属性<br>Exclude :不进行模型映射的操作，这些属性获取不到表单提交的数据，多个属性之间用逗号（，）隔开；<br>Include :进行模型映射的操作，这些属性能得到表单提交的数据，多个属性之间用逗号（，）隔开<br>Prefix : Model使用前缀</p>
+<p>Bind特性只用于Model类和Action的参数上起作用：</p>
+<ul>
+<li>在Model类上设置，不过Prefix在这里的设置是无效的</li>
+<li>在Action的参数上,视图上必须使用Prefix指定的前缀名作为属性的前缀（针对list也有效）</li>
+<li>不建议在Model类上做绑定，而是在Action的参数上做绑定</li>
+</ul>
+<p>自定义绑定器(使用概率比较少) //不想学所以没学</p>
+<h3 id="7、表单数据验证"><a href="#7、表单数据验证" class="headerlink" title="7、表单数据验证"></a>7、表单数据验证</h3><h4 id="7-1、验证规则写在哪里"><a href="#7-1、验证规则写在哪里" class="headerlink" title="7.1、验证规则写在哪里"></a>7.1、验证规则写在哪里</h4><p>在Model类的属性上编写</p>
+<h4 id="7-2、如何编写使用验证规则"><a href="#7-2、如何编写使用验证规则" class="headerlink" title="7.2、如何编写使用验证规则"></a>7.2、如何编写使用验证规则</h4><ol>
+<li><p>引入组件System.ComponentModel.DataAnnotations</p>
+</li>
+<li><p>引入命名空间using System.ComponentModel.DataAnnotations;</p>
+</li>
+<li><p>在属性上,使用特性编写验证规则</p>
+<p>常用特性有：</p>
+<p>​        Required：必填验证。[Required(ErrorMessage = “请输入用户”)]</p>
+<p>​        Compare：比较验证,与其他的属性进行比较。[Compare(“PassWord2”)]</p>
+<p>​        StringLength：字符串的长度验证。[StringLength(5)]</p>
+<p>​        Range：数字(整数和浮点数)、时间等类型的数据范围验证。[Range(10,20)]</p>
+<p>​        RegularExpression：正则表达式验证。[RegularExpression(@”d{2}”]</p>
+<p>​        EmailAddress：Email格式验证。</p>
+</li>
+<li><p>在UI上使用验证规则</p>
+<p>使用强类型视图模型 Inherits=”System.Web.Mvc.ViewPage&lt;Model类&gt;”</p>
+<p>引用Content/Site.css样式文件，才能使提示信息有样式效果</p>
+<p>在要验证的控件后面添加&lt;%=Html.ValidationMessage(“属性名称”) %&gt;显示指定属性的错误信息</p>
+</li>
+<li><p>控制器对Model的处理</p>
+<p>Action方法上参数传入Model数据：public ActionResult Register(Student stu)</p>
+<p>业务操作前判断Model数据是否有效：if (ModelState.IsValid)</p>
+<p>​        ModelState是模型的状态信息</p>
+<p>​        可以是使用ModelState添加业务逻辑错误信息：ModelState.AddModelError(“errPwd”, “密码错误”);</p>
+<p>​        在客户端上使用&lt;%=Html.ValidationMessage(“errPwd”)%&gt;显示错误信息</p>
+<p>返回Model：return View(“~/Views/Home/Index.aspx”,stu);</p>
+</li>
+</ol>
+<h4 id="7-3、客户端验证"><a href="#7-3、客户端验证" class="headerlink" title="7.3、客户端验证"></a>7.3、客户端验证</h4><h3 id="8、HtmlHelper工具类"><a href="#8、HtmlHelper工具类" class="headerlink" title="8、HtmlHelper工具类"></a>8、HtmlHelper工具类</h3><p>HTML.</p>
+<h4 id="8-1、为什么使用HtmlHelper生成HTML？"><a href="#8-1、为什么使用HtmlHelper生成HTML？" class="headerlink" title="8.1、为什么使用HtmlHelper生成HTML？"></a>8.1、为什么使用HtmlHelper生成HTML？</h4><ul>
+<li>HtmlHelper是MVC自带的类，用于生成标准的HTML标签</li>
+<li>HtmlHelper生成的元素能更好的使用MVC的功能，例如:验证框架样式的呈现及数据的保存</li>
+<li>具有OOP编程的特点，代码可读性更强</li>
+</ul>
+<h4 id="8-2、如何使用HtmlHelper生成表单？"><a href="#8-2、如何使用HtmlHelper生成表单？" class="headerlink" title="8.2、如何使用HtmlHelper生成表单？"></a>8.2、如何使用HtmlHelper生成表单？</h4><ul>
+<li><p>ActionLink和RouteLink :生成超链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Html.ActionLink(&quot;linkName&quot;,&quot;action&quot;,&quot;controller&quot;,new &#123;id&#x3D;&quot;id&quot;,attribute&#x3D;&quot;list&quot;&#125;);</span><br><span class="line">    </span><br><span class="line">@Html.RouteLink(&quot;linkName&quot;,&quot;routerName&quot;,new &#123;controller&#x3D;&quot;controller&quot;,action&#x3D;&quot;action&quot; &#125;,new &#123;id&#x3D;&quot;id&quot;,attribute&#x3D;&quot;list&quot;&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>BeginForm :生成表单,有两种写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法一：</span><br><span class="line">@using (Html.BeginForm(&quot;actionName&quot;, &quot;controllerName&quot;, FormMethod.Post))</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;方法二（推荐）</span><br><span class="line">@&#123;Html.BeginForm(&quot;actionName&quot;, &quot;controllerName&quot;, FormMethod.Post);&#125;</span><br><span class="line">	&#x2F;&#x2F;form主体</span><br><span class="line">@&#123;Html.EndForm();&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TextBox:文本框</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;TextBox</span><br><span class="line">@Html.TextBox(&quot;idAndNameValue&quot;,&quot;defaultValue&quot;,new &#123;diyAttribute&#x3D;&quot;value&quot;&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;TextBoxFor</span><br><span class="line">@model MVC_Models.Models.Movie</span><br><span class="line">@Html.TextBoxFor(m &#x3D;&gt;m.Title, new &#123; @style &#x3D; &quot;height:50px;&quot; &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Password:密码框</p>
+</li>
+<li><p>TextArea :文本域</p>
+</li>
+<li><p>CheckBox :复选框</p>
+</li>
+<li><p>RadioButton :单选按钮</p>
+</li>
+<li><p>ListBox :列表框</p>
+</li>
+<li><p>DropDownList :下拉框</p>
+</li>
+<li><p>RenderPartial: 生成部分视图(用户控件)</p>
+</li>
+</ul>
+<h3 id="9、Razor视图"><a href="#9、Razor视图" class="headerlink" title="9、Razor视图"></a>9、Razor视图</h3><p>转义  @@</p>
+<p>注释  @**@</p>
+<h4 id="9-1、母版页"><a href="#9-1、母版页" class="headerlink" title="9.1、母版页"></a>9.1、母版页</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">    Layout&#x3D;&quot;link address&quot;;</span><br><span class="line">    @ViewBag.Title&#x3D;“”; &#x2F;&#x2F;设置标题</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@表达式的结果会HTML编码。如果希望不进行HTML编码，可以使用方法Html.Raw()。1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@ViewBag.Title   &#x2F;&#x2F;输出标题</span><br><span class="line">    </span><br><span class="line">@Styles.Render(&quot;&quot;) &#x2F;&#x2F;读取引入CSS文件</span><br><span class="line">        </span><br><span class="line">@Script.Render(&quot;&quot;)	&#x2F;&#x2F;读取引入JavaScript文件</span><br><span class="line">    </span><br><span class="line">@RenderBody()  &#x2F;&#x2F;输出显示内容页的内容，母版页中必须使用该方法</span><br><span class="line">    </span><br><span class="line">@ReaderSection（“SectionName”，required：false） &#x2F;&#x2F;类似mater页面你的占位控件，第一个参数表示要占位的名称，该作为在内容页是否是必须的</span><br><span class="line">&#x2F;&#x2F;使用方法如下</span><br><span class="line">@section SectionName&#123;</span><br><span class="line">    &lt;p style&#x3D;“color:red;”&gt;这是一个p标签&lt;&#x2F;p&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-2、代码块"><a href="#9-2、代码块" class="headerlink" title="9.2、代码块"></a>9.2、代码块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@&#123;code&#125;    &#x2F;&#x2F;大括号里可以进行C#和HTML代码混合</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;例如</span><br><span class="line">@&#123;</span><br><span class="line">    string name&#x3D;&quot;myname&quot;;</span><br><span class="line">    &lt;p&gt;&lt;b&gt;@name&lt;&#x2F;b&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-3、语句块"><a href="#9-3、语句块" class="headerlink" title="9.3、语句块"></a>9.3、语句块</h4><h5 id="9-3-1、分支"><a href="#9-3-1、分支" class="headerlink" title="9.3.1、分支"></a>9.3.1、分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@if（条件）else&#123;&#125;</span><br><span class="line"></span><br><span class="line">@if(条件)&#123;&#125;else if()&#123;&#125;</span><br><span class="line"></span><br><span class="line">@switch</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-3-2、循环"><a href="#9-3-2、循环" class="headerlink" title="9.3.2、循环"></a>9.3.2、循环</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@for(;;)&#123;&#125;</span><br><span class="line"></span><br><span class="line">@foreach</span><br><span class="line"></span><br><span class="line">@while</span><br><span class="line"></span><br><span class="line">@do&#123;&#125; while(条件);</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-4、视图类型的声明"><a href="#9-4、视图类型的声明" class="headerlink" title="9.4、视图类型的声明"></a>9.4、视图类型的声明</h4><p>@model</p>
+<p>例：@model Repository.Student   //表示该视图的类型是student类，注意不能以分号</p>
+<h4 id="9-5、命名空间的引用"><a href="#9-5、命名空间的引用" class="headerlink" title="9.5、命名空间的引用"></a>9.5、命名空间的引用</h4><p>@using  namespace  //不能以分号结尾</p>
+<h3 id="10、分区项目"><a href="#10、分区项目" class="headerlink" title="10、分区项目"></a>10、分区项目</h3><p>功能：同一个项目按功能可划分多个区域，典型就是前台和后台之分</p>
+<p>添加分区：解决方案右键添加，选择区域选项，输入区域名称，确认。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Oxywen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://oxywen.cn/post/asp-net/mvc/">https://oxywen.cn/post/asp-net/mvc/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://oxywen.cn">不闻星河须臾</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/asp-net/">asp.net</a><a class="post-meta__tags" href="/tags/note/">笔记</a><a class="post-meta__tags" href="/tags/mvc/">mvc</a></div><div class="social-share pull-right" data-disabled="facebook,google,twitter,diandian,linkedin"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script><nav id="pagination"><div class="prev-post pull-left"><a href="/post/go/hello/"><i class="fa fa-chevron-left">  </i><span>一点Golang的学习笔记</span></a></div><div class="next-post pull-right"><a href="/post/asp-net/3/"><span>ASP.NET WebFrom开发03-ASP.NET数据验证控件</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/Valine1.3.10.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'EPD2p82uCKxOE9lfI7hiSp8e-gzGzoHsz',
+  appKey:'Ycr0GVDd8SzCOTyaHEhGRf0s',
+  placeholder:'评论时请留下您的昵称和邮箱，否则评论有关的消息可能无法及时通知给您',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'zh-cn'
+});
+
+$(document).ready(function(){ 
+  if($("#vcomment").html()){
+    var c_name = $('#vcomment input[name="nick"]');
+    var c_mail = $('#vcomment input[type="email"]');
+    var c_text = $('#veditor');
+    var mailzz = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    var c_placeholder = c_text.attr('placeholder');
+    $(".vcontrol .text-right button").hide();
+    $(".vcontrol .text-right").prepend('<span class="submit_f vbtn">回复</span>');
+    $('body').on('click','.submit_f',function(){
+      if(nullpd(c_name.val()) || !mailzz.test(c_mail.val())){
+        Tip("提交失败，昵称和邮箱不能为空或格式错误");
+        return false;
+      }
+      if(!c_text.val()){
+        Tip("提交失败，留言评论不能为空");
+        return false;
+      }
+      $('.vsubmit').click();
+    });
+    function nullpd(str){
+      if(str == "" || str == null || str == undefined){
+        return true;
+      }else{
+        return false;
+      }
+    }
+    function Tip(content){
+      const str = `<div class="valert text-center"><div class="vtext">`+content+`</div></div>`;
+      const vmark = document.querySelector('.vmark');
+      vmark.innerHTML = str;
+      vmark.style.display = 'block';
+      setTimeout(function() {
+        vmark.style.display = 'none';
+        vmark.innerHTML = '';
+      }, 1500);
+    }
+  }
+}); </script></div></div><footer class="footer-bg" style="background-image: url(http://oxywen-cdn.lvhaoz.cn/img/DZvIP.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2020 By Oxywen</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script src="/js/search/local-search.js"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" data-click="false"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

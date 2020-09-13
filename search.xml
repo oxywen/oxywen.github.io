@@ -4,6 +4,23 @@
   
     
     <entry>
+      <title>Hello World</title>
+      <link href="/post/hexo/hello-world/"/>
+      <url>/post/hexo/hello-world/</url>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>图床跑路，博客大部分图片失效</title>
       <link href="/post/daily/no-imgs/"/>
       <url>/post/daily/no-imgs/</url>
@@ -221,23 +238,6 @@
             <tag> 教程 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/post/hexo/hello-world/"/>
-      <url>/post/hexo/hello-world/</url>
-      
-      
-      <categories>
-          
-          <category> hexo </category>
-          
-      </categories>
-      
       
     </entry>
     
